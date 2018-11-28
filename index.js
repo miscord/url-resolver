@@ -18,13 +18,13 @@ const check = async () => {
 check()
 setInterval(check, 5000)
 
-const getURL = (ver, os) => `https://github.com/miscord/miscord/releases/download/v${ver}/miscord-${ver}-${os}.zip`
+const getURL = os => `https://github.com/miscord/miscord/releases/download/v${latest}/miscord-${latest}-${os}.zip`
 
-server.get('/linux.zip', async (req, res) => res.redirect(getURL(latest, 'linux')))
-server.get('/linux32.zip', async (req, res) => res.redirect(getURL(latest, 'linux32')))
-server.get('/mac.zip', async (req, res) => res.redirect(getURL(latest, 'mac')))
-server.get('/macapp.zip', async (req, res) => res.redirect(getURL(latest, 'macapp')))
-server.get('/win.zip', async (req, res) => res.redirect(getURL(latest, 'win')))
-server.get('/win32.zip', async (req, res) => res.redirect(getURL(latest, 'win32')))
+server.get('/linux.zip', async (req, res) => res.redirect(getURL('linux')))
+server.get('/linux32.zip', async (req, res) => res.redirect(getURL('linux32')))
+server.get('/mac.zip', async (req, res) => res.redirect(getURL('mac')))
+server.get('/macapp.zip', async (req, res) => res.redirect(getURL('macapp')))
+server.get('/win.zip', async (req, res) => res.redirect(getURL('win')))
+server.get('/win32.zip', async (req, res) => res.redirect(getURL('win32')))
 
 server.listen(8833)
