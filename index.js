@@ -6,7 +6,8 @@ let lastDate
 
 const check = async () => {
   console.log('Refreshing!')
-  const init = lastDate ? { headers: { 'If-Modified-Since': lastDate.toGMTString() } } : {}
+  const init = { headers: { 'Authorization': `Bearer ${process.env.GITHUB_TOKEN}` } }
+  if (lastDate) init.headers['If-Modified-Since'] = lastDate.toGMTString()
   const res = await fetch('https://api.github.com/repos/Bjornskjald/miscord/releases/latest', init)
   if (res.status === 304) return console.log('304')
   const json = await res.json()
