@@ -28,4 +28,4 @@ server.get('/download/macapp.zip', async (req, res) => res.redirect(getURL('maca
 server.get('/download/win.zip', async (req, res) => res.redirect(getURL('win')))
 server.get('/download/win32.zip', async (req, res) => res.redirect(getURL('win32')))
 
-server.listen(8833)
+server.listen(8833, '0.0.0.0')
